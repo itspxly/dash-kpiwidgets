@@ -3,6 +3,70 @@
     "displayName": "KPIWidget",
     "description": "Component description\r",
     "props": {
+      "name": {
+        "description": "",
+        "required": true,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "units": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "value": {
+        "description": "",
+        "required": true,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "preValue": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "target": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "variance": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "inverted": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "enabled": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
       "id": {
         "description": "Unique ID to identify this component in Dash callbacks.",
         "required": false,
