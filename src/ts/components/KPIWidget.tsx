@@ -140,7 +140,7 @@ const KPIWidget = (props: WidgetProps) => {
         'red': preValue && enabled && value < preValue,
         'inf': preValue ? value === preValue : enabled,
         'inverted': inverted,
-        'compact': false,
+        'compact': mode == 'compact',
         'disabled': !enabled
     });
 
@@ -151,6 +151,7 @@ const KPIWidget = (props: WidgetProps) => {
         'inf': preValue ? value === preValue : true,
         'inverted': inverted,
         'disabled': !enabled,
+        'compact': mode == 'compact',
     });
 
     const targetDiffClass = classNames({
@@ -170,22 +171,45 @@ const KPIWidget = (props: WidgetProps) => {
             <div className='kpi-widget-value-container'>
                 <div className="kpi-widget-value">{pretifyNumber(value, valuePrecision)}</div>
                 {showDiff && (
-                <div className={valueDiffClass}>
-                    {!Number.isNaN(diff) ? ((diff > 0 ? '+' : '') + pretifyNumber(diff, diffPrecision) + '%') : 'n/a'}
-                </div>
+                    <div className={valueDiffClass}>
+                        {!Number.isNaN(diff) ? ((diff > 0 ? '+' : '') + pretifyNumber(diff, diffPrecision) + '%') : 'n/a'}
+                    </div>
                 )}
             </div>
             { (showTarget || showTargetDiff) && (
-            <div className="kpi-widget-target-container">
-                {showTarget && <div className="target">{(target !== undefined) && !Number.isNaN(target) ? (pretifyNumber(target, targetPrecision)) : '---'}</div>}
-                {showTargetDiff && <div className={targetDiffClass}>{(targetDiff !== undefined) && !Number.isNaN(targetDiff) ? (pretifyNumber(targetDiff, targetDiffPrecision)) + '%' : '---'}</div>}
-            </div>
+                <div className="kpi-widget-target-container">
+                    {showTarget && (
+                        <div className="target">
+                            {(target !== undefined) && !Number.isNaN(target) ? (pretifyNumber(target, targetPrecision)) : '---'}
+                        </div>
+                    )}
+                    {showTargetDiff && (
+                        <div className={targetDiffClass}>
+                            {(targetDiff !== undefined) && !Number.isNaN(targetDiff) ? (pretifyNumber(targetDiff, targetDiffPrecision)) + '%' : '---'}
+                        </div>
+                    )}
+                </div>
             )}
         </div>
     );
 
     const compact_widget = (
-        <></>
+        <div id={id} className={containerClass}>
+            <div className="kpi-widget-caption-container compact">
+                {units && <div className="kpi-widget-caption-units compact">{units}</div>}
+                <div className="kpi-widget-caption-title compact">{name}</div>
+            </div>
+            <div className="kpi-compact-container">
+                <div className="kpi-compact-left">
+                    <div className="kpi-widget-value compact">{pretifyNumber(value, valuePrecision)}</div>
+                </div>
+                <div className="kpi-compact-right">
+                    <div className="kpi-widget-value-diff compact green inverted">+1.5K%</div>
+                    <div className="target">50.7B</div>
+                    <div className="target-var">506.5%</div>
+                </div>
+            </div>
+        </div>
     );
 
     return (mode == 'compact' ? compact_widget : default_widget);
