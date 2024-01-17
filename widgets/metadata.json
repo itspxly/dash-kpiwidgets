@@ -1,7 +1,7 @@
 {
   "src/ts/components/KPIWidget.tsx": {
     "displayName": "KPIWidget",
-    "description": "Component description\r",
+    "description": "KPIWidget component\r\n\r\n@param {WidgetProps.name} name - KPI name\r\n@param {WidgetProps.units} units - Units, used to measure KPI, e.g. 'USD', 'hrs.', etc.\r\n@param {WidgetProps.value} value - Current KPI value\r\n@param {WidgetProps.mode} mode - Widget mode (default, compact)\r\n@param {WidgetProps.preValue} preValue - Previous KPI value, to compare with\r\n@param {WidgetProps.baseline} baseline - Baseline (starting value, to measure progress from base -> target) value\r\n@param {WidgetProps.min} value_min - Minimum value of KPI (used to calculate Performace type of target difference)\r\n@param {WidgetProps.max} value_max - Maximum value of KPI (used to calculate Performace type of target difference)\r\n@param {WidgetProps.targetDiffType} targetDiffType - Type of scoring the difference between current and target value\r\n@param {WidgetProps.target} target - Target value\r\n@param {WidgetProps.inverted} inverted - Should we invert what's godd and what's bad (going up -> bas, going down -> good)\r\n@param {WidgetProps.enabled} enabled - Is KPI Wisget enabled\r\n@param {WidgetProps.showDiff} showDiff - Should we show difference between current and previous value\r\n@param {WidgetProps.showTarget} showTarget - Should we show target value\r\n@param {WidgetProps.showTargetDiff} showTargetDiff - Should we show difference between current and target value\r\n@param {WidgetProps.valuePrecision} valuePrecision - Precision of value\r\n@param {WidgetProps.diffPrecision} diffPrecision - Precision of difference\r\n@param {WidgetProps.targetPrecision} targetPrecision - Precision of target\r\n@param {WidgetProps.targetDiffPrecision} targetDiffPrecision - Precision of target difference\r\n@param {WidgetProps.diffMethod} diffMethod - Method to calculate difference between current and previous value\r\n@param {WidgetProps.targetDiffMethod} targetDiffMethod - Method to calculate difference between current and target value\r\n@param {WidgetProps.id} id - HTML id attribute\r",
     "props": {
       "name": {
         "description": "",
@@ -17,6 +17,24 @@
         "type": {
           "name": "string",
           "raw": "string"
+        }
+      },
+      "mode": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'compact'",
+              "computed": false
+            }
+          ],
+          "raw": "EWidgetMode"
         }
       },
       "value": {
@@ -35,7 +53,7 @@
           "raw": "number"
         }
       },
-      "target": {
+      "baseline": {
         "description": "",
         "required": false,
         "type": {
@@ -43,12 +61,58 @@
           "raw": "number"
         }
       },
-      "variance": {
+      "value_min": {
         "description": "",
         "required": false,
         "type": {
-          "name": "bool",
-          "raw": "boolean"
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "value_max": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "targetDiffType": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'progress'",
+              "computed": false
+            },
+            {
+              "value": "'variance'",
+              "computed": false
+            },
+            {
+              "value": "'performance'",
+              "computed": false
+            },
+            {
+              "value": "'user'",
+              "computed": false
+            }
+          ],
+          "raw": "ETargetDifferenceType"
+        }
+      },
+      "target": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
         }
       },
       "inverted": {
@@ -65,6 +129,80 @@
         "type": {
           "name": "bool",
           "raw": "boolean"
+        }
+      },
+      "showDiff": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "showTarget": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "showTargetDiff": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
+        }
+      },
+      "valuePrecision": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "diffPrecision": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "targetPrecision": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "targetDiffPrecision": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "diffMethod": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "shape",
+          "value": {},
+          "raw": "FDifferenceMethod"
+        }
+      },
+      "targetDiffMethod": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "shape",
+          "value": {},
+          "raw": "FTargetDifferenceMethod"
         }
       },
       "id": {

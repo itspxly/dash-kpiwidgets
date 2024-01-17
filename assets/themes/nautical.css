@@ -16,11 +16,14 @@
     --w-bg-base: #3b4655c6;
     --w-bg-base-alt: #1e2736c6;
     --w-bg-base-inf: #566272c6;
+    --w-bg-base-inf-alt: #7c8a9cc6;
     --w-bg-green: #157b6bc6;
-    --w-bg-green-alt: #2db386c6;
+    --w-bg-green-alt: #39d6a2c6;
     --w-bg-red: #f66e4886;
-    --w-bg-red-alt: #f66e48c6;
+    --w-bg-red-alt: #f66e48d2;
     --w-caption-color: #c8c8c8;
+    --w-caption-color-units: #c8c8c8;
+    --w-caption-color-units-font: #000000;
 
     --w-diff-red: #f2947a;
     --w-diff-green: #8af27a;
@@ -34,5 +37,6 @@
     --widget-body: #151a24c6;
     --widget-body-alt: #2a333dc6;
     --widget-shadow-color: #0e131d9e;
+    --widget-shadow-value-color: #0e131d71;
     --widget-border-color: #2e363e;
 }

@@ -65,6 +65,16 @@ describe('pretifyNumber', () => {
     expect(pretifyNumber(-98765432100005555, -4)).toBe('-98765T');
     expect(pretifyNumber(98765432100005555)).toBe('98765.4T');
   });
+
+  it('should return T and Large Number', () => {
+    expect(pretifyNumber(-0.008264462809917356)).toBe('0.0');
+    expect(pretifyNumber(0.008264462809917356)).toBe('0.0');
+  });
+
+  it('should return T and Large Number', () => {
+    expect(pretifyNumber(-0.008264462809917356, 2)).toBe('-0.01');
+    expect(pretifyNumber(0.008264462809917356, 2)).toBe('0.01');
+  });
 });
 
 
