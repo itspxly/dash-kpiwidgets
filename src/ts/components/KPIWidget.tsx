@@ -185,7 +185,7 @@ const KPIWidget = (props: WidgetProps) => {
     );
 
     const compact_widget = (
-    
+        <></>
     );
 
     return (mode == 'compact' ? compact_widget : default_widget);
