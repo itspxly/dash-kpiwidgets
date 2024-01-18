@@ -160,6 +160,16 @@ const KPIWidget = (props: WidgetProps) => {
         'target-perf': targetDiffType == 'performance',
     });
 
+    const valueClass = classNames({
+        'kpi-widget-value': true,
+        'green': preValue && value > preValue,
+        'red': preValue && value < preValue,
+        'inf': preValue ? value === preValue : true,
+        'inverted': inverted,
+        'disabled': !enabled,
+        'compact': mode == 'compact',
+    });
+
     //let diff = diff_method(value, preValue || 0) * 100;
 
     const default_widget = (
@@ -201,13 +211,27 @@ const KPIWidget = (props: WidgetProps) => {
             </div>
             <div className="kpi-compact-container">
                 <div className="kpi-compact-left">
-                    <div className="kpi-widget-value compact">{pretifyNumber(value, valuePrecision)}</div>
+                    <div className={valueClass}>{pretifyNumber(value, valuePrecision)}</div>
                 </div>
-                <div className="kpi-compact-right">
-                    <div className="kpi-widget-value-diff compact green inverted">+1.5K%</div>
-                    <div className="target">50.7B</div>
-                    <div className="target-var">506.5%</div>
-                </div>
+                { (showTarget || showTargetDiff || showDiff) && (
+                    <div className="kpi-compact-right">
+                        {showDiff && (
+                            <div className={valueDiffClass}>
+                                 {!Number.isNaN(diff) ? ((diff > 0 ? '+' : '') + pretifyNumber(diff, diffPrecision) + '%') : 'n/a'}
+                            </div>
+                        )}
+                        {showTarget && (
+                            <div className="target">
+                                 {(target !== undefined) && !Number.isNaN(target) ? (pretifyNumber(target, targetPrecision)) : '---'}
+                            </div>
+                        )}
+                         {showTargetDiff && (
+                            <div className={targetDiffClass}>
+                                {(targetDiff !== undefined) && !Number.isNaN(targetDiff) ? (pretifyNumber(targetDiff, targetDiffPrecision)) + '%' : '---'}
+                            </div>
+                         )}
+                    </div>
+                )}
             </div>
         </div>
     );
