@@ -7,7 +7,14 @@ app.layout = html.Div([
     html.H1("Compact Test"),
     html.Div(style={'display': 'flex', 'flexFlow': 'row nowrap', 'justifyContent': 'center', 'gap': '1rem'}, children=[
         KPIWidget(value=120, units='$', preValue=100, name="Up Positive", mode='compact'),
-        KPIWidget(value=312310, preValue=120.1, name="Down Negative", target=1534, mode='compact', targetDiffType='variance', units='USD'),
+        KPIWidget(value=-88808888888465482, preValue=3123100, name="Down Negative", target=1534, mode='compact', targetDiffType='variance', units='USD'),
+        KPIWidget(value=120, name="Inf, No Value", mode='compact', targetDiffType='performance', units='USD'),
+        KPIWidget(value=120, preValue=119, name="Disabled", enabled=False, mode='compact'),
+    ]),
+    html.H1("Value Test"),
+    html.Div(style={'display': 'flex', 'flexFlow': 'row nowrap', 'justifyContent': 'center', 'gap': '1rem'}, children=[
+        KPIWidget(value=120, units='$', preValue=100, name="Up Positive", mode='compact'),
+        KPIWidget(value=312310, preValue=3123100, name="Down Negative", target=1534, mode='compact', targetDiffType='variance', units='USD'),
         KPIWidget(value=120, name="Inf, No Value", mode='compact', targetDiffType='performance'),
         KPIWidget(value=120, preValue=119, name="Disabled", enabled=False, mode='compact'),
     ]),

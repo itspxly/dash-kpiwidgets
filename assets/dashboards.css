@@ -534,7 +534,7 @@ there.
 }
 
 
-@import url('/module/assets/themes/nautical/kpiwidget.css');
+@import url('/module/assets/themes/nautical/css/kpiwidget.auto.css');
 
 /* Larger than mobile */
 @media (min-width: 400px) {}

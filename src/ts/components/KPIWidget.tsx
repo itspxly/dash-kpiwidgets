@@ -209,12 +209,12 @@ const KPIWidget = (props: WidgetProps) => {
                 {units && <div className="kpi-widget-caption-units compact">{units}</div>}
                 <div className="kpi-widget-caption-title compact">{name}</div>
             </div>
-            <div className="kpi-compact-container">
-                <div className="kpi-compact-left">
+            <div className="kpi-widget-compact-container">
+                <div className="kpi-widget-compact-container-value">
                     <div className={valueClass}>{pretifyNumber(value, valuePrecision)}</div>
                 </div>
                 { (showTarget || showTargetDiff || showDiff) && (
-                    <div className="kpi-compact-right">
+                    <div className="kpi-widget-target-container compact">
                         {showDiff && (
                             <div className={valueDiffClass}>
                                  {!Number.isNaN(diff) ? ((diff > 0 ? '+' : '') + pretifyNumber(diff, diffPrecision) + '%') : 'n/a'}
