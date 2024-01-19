@@ -1,5 +1,11 @@
 @use 'colors' as c;
 
+//Values & Confs
+$border-radius: 1rem;
+$border-radius-compact: calc($border-radius / 2);
+$border-width: 2px;
+
+//Extensibles
 %no_wrapping {
     white-space: nowrap;
     overflow: hidden;
@@ -26,22 +32,27 @@
     background-color: c.$font-color-alt;
 }
 
+//Mixins
+
+// Helps to create a container with a gradient background and a border based on the state of the widget
 @mixin container_color($bg-color-main, $bg-color-alt, $border-color, $h-bg-color-main, $h-bg-color-alt, $h-border-color) {
     background: linear-gradient(30deg, $bg-color-main 0%, $bg-color-alt 100%);
-    border: 1px solid $border-color !important;
+    border: $border-width solid $border-color !important;
 
     &:hover {
         background: linear-gradient(30deg, $h-bg-color-main 0%, $h-bg-color-alt 100%);
-        border: 1px solid $h-border-color !important;
+        border: $border-width solid $h-border-color !important;
         
         box-shadow: -0.25rem 0.7rem 0.7rem c.$widget-shadow-color;
     }
 }
 
+// Helps to value glow based on the state of the widget
 @mixin value_glow($color) {
     text-shadow: 0rem 0rem 2.5rem $color;
 }
 
+// Helps to style ValueDiff element based on the state of the widget
 @mixin value_diff_state($color, $compact_color, $compact_bg_color, $left_arrow, $right_arrow) {
     color: $color;
 
@@ -74,6 +85,7 @@
     }
 }
 
+//Styles
 .kpi-widget {
     &-container {
         margin: 0;
@@ -85,7 +97,7 @@
         
         width: 27rem;
         min-width: 27rem;
-        border-radius: 1rem;
+        border-radius: $border-radius;
         background: linear-gradient(30deg, c.$w-bg-base-alt 0%, c.$w-bg-base-alt 100%);
         
         box-shadow: -0.3rem 0.5rem 0.5rem c.$widget-shadow-color;
@@ -135,7 +147,7 @@
             
             background-color: c.$widget-caption-container;
             width: 100%;
-            border-radius: 1rem 1rem 0 0;
+            border-radius: $border-radius $border-radius 0 0;
             
             display: flex;
             flex-flow: row nowrap;
@@ -172,7 +184,7 @@
             
             width: 11rem;
             background-color: c.$w-caption-color;
-            border-radius: 0.5rem;
+            border-radius: $border-radius-compact;
             
             opacity: 55%;
             mix-blend-mode: color-dodge;
@@ -262,7 +274,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             
-            border-radius: 0.5rem;
+            border-radius: $border-radius-compact;
             
             text-shadow: none;
             
@@ -396,8 +408,6 @@
                 font-weight: 400;
                 text-wrap: nowrap;
                 white-space: nowrap;
-                
-                border-radius: 0.5rem;
                 
                 text-shadow: none;
                 mix-blend-mode: screen;
