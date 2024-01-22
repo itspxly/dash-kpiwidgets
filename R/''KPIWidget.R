@@ -10,9 +10,9 @@
     component <- list(
         props = props,
         type = 'KPIWidget',
-        namespace = 'widgets',
+        namespace = 'kpiwidgets',
         propNames = c('children', 'id', 'baseline', 'diffPrecision', 'diffType', 'disable_n_clicks', 'enabled', 'inverted', 'mode', 'n_clicks', 'n_clicks_timestamp', 'name', 'preValue', 'showDiff', 'showTarget', 'showTargetDiff', 'target', 'targetDiffPrecision', 'targetDiffType', 'targetPrecision', 'units', 'userDiffValue', 'userTargetDiffValue', 'value', 'valueMax', 'valueMin', 'valuePrecision'),
-        package = 'widgets'
+        package = 'kpiwidgets'
         )
 
     structure(component, class = c('dash_component', 'list'))

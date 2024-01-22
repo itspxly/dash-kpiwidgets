@@ -1,3 +1,12 @@
+/*!
+	Copyright (c) 2024 Andrei Kozik.
+	Licensed under the Mozilla Public License, v. 2.0 (MPL v2.0), see
+
+    This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. 
+    If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+*/
+/* global define */
+
 import React from 'react';
 
 import {KPIWidgetProps, FDifferenceMethod, FTargetDifferenceMethod} from './KPIWidgetTypes';
@@ -145,7 +154,7 @@ const KPIWidget: React.FC<KPIWidgetProps> = (props: KPIWidgetProps) => {
      * Define a CSS Class for the whole widget container
      */
     const containerClass = classNames({
-        'kpi-widget-container': true,
+        'kpi-widget-nautical-container': true,
         'green': preValue && enabled && value > preValue,
         'red': preValue && enabled && value < preValue,
         'inf': preValue ? value === preValue : enabled,
@@ -158,7 +167,7 @@ const KPIWidget: React.FC<KPIWidgetProps> = (props: KPIWidgetProps) => {
      * Define a CSS Class for the difference between current and previous value
      */
     const valueDiffClass = classNames({
-        'kpi-widget-value-diff': true,
+        'kpi-widget-nautical-value-diff': true,
         'green': preValue && value > preValue,
         'red': preValue && value < preValue,
         'inf': preValue ? value === preValue : true,
@@ -180,7 +189,7 @@ const KPIWidget: React.FC<KPIWidgetProps> = (props: KPIWidgetProps) => {
      * Define a CSS Class for the value of the widget
      */
     const valueClass = classNames({
-        'kpi-widget-value': true,
+        'kpi-widget-nautical-value': true,
         'green': preValue && value > preValue,
         'red': preValue && value < preValue,
         'inf': preValue ? value === preValue : true,
@@ -212,12 +221,12 @@ const KPIWidget: React.FC<KPIWidgetProps> = (props: KPIWidgetProps) => {
      */
     const default_widget = (
         <div id={id} className={containerClass} onClick={clickHandler}>
-            <div className="kpi-widget-caption-container">
-                {units && <div className="kpi-widget-caption-units">{units}</div>}
-                <div className="kpi-widget-caption-title">{name}</div>
+            <div className="kpi-widget-nautical-caption-container">
+                {units && <div className="kpi-widget-nautical-caption-units">{units}</div>}
+                <div className="kpi-widget-nautical-caption-title">{name}</div>
             </div>
-            <div className='kpi-widget-value-container'>
-                <div className="kpi-widget-value">{pretifyNumber(value, valuePrecision)}</div>
+            <div className='kpi-widget-nautical-value-container'>
+                <div className="kpi-widget-nautical-value">{pretifyNumber(value, valuePrecision)}</div>
                 {showDiff && (
                     <div className={valueDiffClass}>
                         {!Number.isNaN(diff) ? ((diff > 0 ? '+' : '') + pretifyNumber(diff, diffPrecision) + '%') : 'n/a'}
@@ -225,7 +234,7 @@ const KPIWidget: React.FC<KPIWidgetProps> = (props: KPIWidgetProps) => {
                 )}
             </div>
             { (showTarget || showTargetDiff) && (
-                <div className="kpi-widget-target-container">
+                <div className="kpi-widget-nautical-target-container">
                     {showTarget && (
                         <div className="target">
                             {(target !== undefined) && !Number.isNaN(target) ? (pretifyNumber(target, targetPrecision)) : '---'}
@@ -247,16 +256,16 @@ const KPIWidget: React.FC<KPIWidgetProps> = (props: KPIWidgetProps) => {
      */
     const compact_widget = (
         <div id={id} className={containerClass} onClick={clickHandler}>
-            <div className="kpi-widget-caption-container compact">
-                {units && <div className="kpi-widget-caption-units compact">{units}</div>}
-                <div className="kpi-widget-caption-title compact">{name}</div>
+            <div className="kpi-widget-nautical-caption-container compact">
+                {units && <div className="kpi-widget-nautical-caption-units compact">{units}</div>}
+                <div className="kpi-widget-nautical-caption-title compact">{name}</div>
             </div>
-            <div className="kpi-widget-compact-container">
-                <div className="kpi-widget-compact-container-value">
+            <div className="kpi-widget-nautical-compact-container">
+                <div className="kpi-widget-nautical-compact-container-value">
                     <div className={valueClass}>{pretifyNumber(value, valuePrecision)}</div>
                 </div>
                 { (showTarget || showTargetDiff || showDiff) && (
-                    <div className="kpi-widget-target-container compact">
+                    <div className="kpi-widget-nautical-target-container compact">
                         {showDiff && (
                             <div className={valueDiffClass}>
                                  {!Number.isNaN(diff) ? ((diff > 0 ? '+' : '') + pretifyNumber(diff, diffPrecision) + '%') : 'n/a'}

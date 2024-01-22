@@ -1,11 +1,11 @@
-Package: widgets
+Package: kpiwidgets
 Title: Custom React component for Dash by Plotly. Used to show the KPI value (with or without units) and difference between current and previous value, as well as target value, with difference from it, based on predefined or custom rules. 
 Version: 1.0.0
 Description: Custom React component for Dash by Plotly. Used to show the KPI value (with or without units) and difference between current and previous value, as well as target value, with difference from it, based on predefined or custom rules. 
 Depends: R (>= 3.0.2)
 Imports: 
 Suggests: 
-License: MPL-2.0 + file LICENSE
+License: MPL-2.0 + LICENSE file + file LICENSE
 URL: https://github.com/itspxly/dashboards-widgets
 BugReports: https://github.com/itspxly/dashboards-widgets/issues
 Encoding: UTF-8

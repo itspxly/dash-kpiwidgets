@@ -1,4 +1,4 @@
-from widgets import KPIWidget
+from kpiwidgets import KPIWidget
 from dash import Dash, html, callback, Input, Output, State
 
 app = Dash(__name__)

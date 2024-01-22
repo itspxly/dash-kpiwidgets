@@ -1,6 +1,6 @@
 
-name = "Widgets"
-uuid = "1b08a953-4be3-4667-9a23-b407c8eca014"
+name = "Kpiwidgets"
+uuid = "1b08a953-4be3-4667-9a23-5bcc29a65e1e"
 authors = ["Andrei Kozik <itspxly@gmail.com>"]
 version = "1.0.0"
 

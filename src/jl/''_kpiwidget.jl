@@ -75,7 +75,7 @@ This can be used to tell which button was changed most recently.
 function ''_kpiwidget(; kwargs...)
         available_props = Symbol[:children, :id, :baseline, :diffPrecision, :diffType, :disable_n_clicks, :enabled, :inverted, :mode, :n_clicks, :n_clicks_timestamp, :name, :preValue, :showDiff, :showTarget, :showTargetDiff, :target, :targetDiffPrecision, :targetDiffType, :targetPrecision, :units, :userDiffValue, :userTargetDiffValue, :value, :valueMax, :valueMin, :valuePrecision]
         wild_props = Symbol[]
-        return Component("''_kpiwidget", "KPIWidget", "widgets", available_props, wild_props; kwargs...)
+        return Component("''_kpiwidget", "KPIWidget", "kpiwidgets", available_props, wild_props; kwargs...)
 end
 
 ''_kpiwidget(children::Any; kwargs...) = ''_kpiwidget(;kwargs..., children = children)

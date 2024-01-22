@@ -115,7 +115,7 @@ Keyword arguments:
     @,default,1."""
     _children_props = []
     _base_nodes = ['children']
-    _namespace = 'widgets'
+    _namespace = 'kpiwidgets'
     _type = 'KPIWidget'
     @_explicitize_args
     def __init__(self, children=None, name=Component.REQUIRED, units=Component.UNDEFINED, mode=Component.UNDEFINED, value=Component.REQUIRED, preValue=Component.UNDEFINED, baseline=Component.UNDEFINED, valueMin=Component.UNDEFINED, valueMax=Component.UNDEFINED, userDiffValue=Component.UNDEFINED, diffType=Component.UNDEFINED, targetDiffType=Component.UNDEFINED, target=Component.UNDEFINED, userTargetDiffValue=Component.UNDEFINED, inverted=Component.UNDEFINED, enabled=Component.UNDEFINED, showDiff=Component.UNDEFINED, showTarget=Component.UNDEFINED, showTargetDiff=Component.UNDEFINED, valuePrecision=Component.UNDEFINED, diffPrecision=Component.UNDEFINED, targetPrecision=Component.UNDEFINED, targetDiffPrecision=Component.UNDEFINED, n_clicks=Component.UNDEFINED, n_clicks_timestamp=Component.UNDEFINED, disable_n_clicks=Component.UNDEFINED, id=Component.UNDEFINED, **kwargs):
