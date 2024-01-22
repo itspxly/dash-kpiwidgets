@@ -7,6 +7,18 @@ EDIT ON*/
 
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+:root {
+  --bg-color-main: #3b4655;
+  --bg-color-alt: #0d121a;
+  --font-color-base: #e6e8ec;
+  --widget-caption: #202831;
+  --font-color-alt: #5f6268;
+  --widget-border-color: #2e363e;
+  --color-pallete-orange: #ef6c2e;
+  --font-color-base: #e6e8ec;
+  --widget-caption-alt: #151a24;
+  }
+
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 - Plotly.js
@@ -416,7 +428,9 @@ hr {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap');*/
 
-@import url('/module/assets/themes/nautical/colors.css');
+/* @import url('/module/assets/themes/nautical/colors.css'); */
+
+
 
 body {
   height: 100%;
@@ -424,13 +438,8 @@ body {
   background: linear-gradient(9deg, var(--bg-color-alt) 0%, var(--bg-color-alt) 64%, var(--bg-color-main) 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /*height: 100vh;*/
-  /*display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;*/
   font-family: 'Noto Sans', sans-serif;
-  color:var(--font-color-alt)
+  /* color:var(--font-color-alt); */
 }
 
 /* Typography
@@ -451,21 +460,21 @@ p {
   margin-top: 0; 
 }
 
-div.widget {
+/* div.widget {
   background: linear-gradient(0deg, var(--widget-body-alt) 0%, var(--widget-body) 100%);
   /*background: radial-gradient();*/
-  padding: 2rem;
+  /* padding: 2rem;
   border-radius: 1rem;
   border: 2px solid var(--widget-border-color);
   margin: 2rem 0 3rem 0;
   color: var(--font-color-base);
-  box-shadow: -0.15rem 0.5rem 0.1rem var(--widget-shadow-color);
+  box-shadow: -0.15rem 0.5rem 0.1rem var(--widget-shadow-color); */
 
   /*-moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
-  user-select: none;*/
-}
+  user-select: none;
+} */
 
 
 /****/
@@ -485,7 +494,7 @@ div.widget {
 }
 
 .custom-tab {
-  color: var(--font-color-alt) !important;
+  /* color: var(--font-color-alt) !important; */
   border: 1px solid var(--widget-border-color) !important;
   /*border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -503,7 +512,7 @@ div.widget {
 }
 .custom-tab--selected {
   border: 1px solid var(--color-pallete-orange) !important;
-  color: var(--font-color-base) !important;
+  /* color: var(--font-color-base) !important; */
   background-color: var(--widget-caption-alt) !important;  
   /*
   border-left: 1px solid lightgrey !important;

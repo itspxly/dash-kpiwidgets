@@ -18,7 +18,7 @@ $border-width: 2px;
 }
 
 %disabled_state {
-    color: c.$font-color-alt;
+    color: c.$widget-nautical-color-alt;
     
     text-shadow: none;
     
@@ -29,7 +29,7 @@ $border-width: 2px;
 %disabled_diff {
     @extend %disabled_state;
     color: c.$w-caption-color-units-font;
-    background-color: c.$font-color-alt;
+    background-color: c.$widget-nautical-color-alt;
 }
 
 //Mixins
@@ -88,11 +88,12 @@ $border-width: 2px;
 //Styles
 .kpi-widget {
     &-container {
+        user-select: none;
         margin: 0;
         padding-bottom: 3rem;
         
         font-family: 'Chakra Petch', sans-serif;
-        color: c.$font-color-base;
+        color: c.$widget-nautical-color-base;
         font-size: 2rem;
         
         width: 27rem;
@@ -192,7 +193,7 @@ $border-width: 2px;
             &.compact {
                 width: 11rem;
                 
-                background-color: c.$font-color-alt;
+                background-color: c.$widget-nautical-color-alt;
                 
                 opacity: 95%;
                 mix-blend-mode: color-dodge;

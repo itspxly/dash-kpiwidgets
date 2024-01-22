@@ -1,15 +1,16 @@
 from widgets import KPIWidget
-from dash import Dash, html
+from dash import Dash, html, callback, Input, Output, State
 
 app = Dash(__name__)
 
 app.layout = html.Div([
+    html.Button("Click Me", id='testBtn'),
     html.H1("Compact Test"),
     html.Div(style={'display': 'flex', 'flexFlow': 'row nowrap', 'justifyContent': 'center', 'gap': '1rem'}, children=[
-        KPIWidget(value=120, units='$', preValue=100, name="Up Positive", mode='compact'),
-        KPIWidget(value=-88808888885482, preValue=31654455623100, name="Down Negative", target=153564654454, mode='compact', targetDiffType='variance', units='USD'),
+        KPIWidget(id='test', value=120, units='$', preValue=100, name="Up Positive", mode='compact', n_clicks=0),
+        KPIWidget(id='test2', value=0, preValue=99, name="Down Negative", target=15, mode='compact', targetDiffType='variance', units='USD'),
         KPIWidget(value=120, name="Inf, No Value", mode='compact', targetDiffType='performance', units='USD'),
-        KPIWidget(value=120, preValue=119, name="Disabled", enabled=False, mode='compact'),
+        KPIWidget(value=120, preValue=119, name="Disabled", enabled=False, mode='compact', units='USD'),
     ]),
     html.H1("Value Test"),
     html.Div(style={'display': 'flex', 'flexFlow': 'row nowrap', 'justifyContent': 'center', 'gap': '1rem'}, children=[
@@ -57,12 +58,20 @@ app.layout = html.Div([
         KPIWidget(value=120, preValue=100, name="Target", target=150),
         KPIWidget(value=120, preValue=100, name="Target Based", target=150, baseline=100),
         KPIWidget(value=120, preValue=100, name="Target Var", target=150, targetDiffType='variance'),
-        KPIWidget(value=120, preValue=100, name="Target Perf", target=150, targetDiffType='performance', value_min=100, value_max=180, showTarget=False),
+        KPIWidget(value=120, preValue=100, name="Target Perf", target=150, targetDiffType='performance', valueMin=100, valueMax=180, showTarget=False),
         KPIWidget(value=120, preValue=100, name="Target Perf ERR", target=150, targetDiffType='performance'),
     ]),
     html.H1("Units Test"),
 ], style={'display': 'flex', 'flexFlow': 'column nowrap', 'justifyContent': 'center'})
 
+test = KPIWidget(value=120, preValue=100, name="Up Positive", mode='compact')
+
+@app.callback(
+    Output('test2', 'value'),
+    Input('test', 'n_clicks'),
+    )
+def change(n_clicks):
+    return n_clicks
 
 if __name__ == '__main__':
     app.run_server(debug=True, port=8051)

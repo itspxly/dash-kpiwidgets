@@ -1,10 +1,10 @@
 {
-  "src/ts/components/KPIWidget.tsx": {
+  "src/ts/components/KPIWidget/KPIWidget.tsx": {
     "displayName": "KPIWidget",
-    "description": "KPIWidget component\r\n\r\n@param {WidgetProps.name} name - KPI name\r\n@param {WidgetProps.units} units - Units, used to measure KPI, e.g. 'USD', 'hrs.', etc.\r\n@param {WidgetProps.value} value - Current KPI value\r\n@param {WidgetProps.mode} mode - Widget mode (default, compact)\r\n@param {WidgetProps.preValue} preValue - Previous KPI value, to compare with\r\n@param {WidgetProps.baseline} baseline - Baseline (starting value, to measure progress from base -> target) value\r\n@param {WidgetProps.min} value_min - Minimum value of KPI (used to calculate Performace type of target difference)\r\n@param {WidgetProps.max} value_max - Maximum value of KPI (used to calculate Performace type of target difference)\r\n@param {WidgetProps.targetDiffType} targetDiffType - Type of scoring the difference between current and target value\r\n@param {WidgetProps.target} target - Target value\r\n@param {WidgetProps.inverted} inverted - Should we invert what's godd and what's bad (going up -> bas, going down -> good)\r\n@param {WidgetProps.enabled} enabled - Is KPI Wisget enabled\r\n@param {WidgetProps.showDiff} showDiff - Should we show difference between current and previous value\r\n@param {WidgetProps.showTarget} showTarget - Should we show target value\r\n@param {WidgetProps.showTargetDiff} showTargetDiff - Should we show difference between current and target value\r\n@param {WidgetProps.valuePrecision} valuePrecision - Precision of value\r\n@param {WidgetProps.diffPrecision} diffPrecision - Precision of difference\r\n@param {WidgetProps.targetPrecision} targetPrecision - Precision of target\r\n@param {WidgetProps.targetDiffPrecision} targetDiffPrecision - Precision of target difference\r\n@param {WidgetProps.diffMethod} diffMethod - Method to calculate difference between current and previous value\r\n@param {WidgetProps.targetDiffMethod} targetDiffMethod - Method to calculate difference between current and target value\r\n@param {WidgetProps.id} id - HTML id attribute\r",
+    "description": "",
     "props": {
       "name": {
-        "description": "",
+        "description": "KPI name (required)",
         "required": true,
         "type": {
           "name": "string",
@@ -12,7 +12,7 @@
         }
       },
       "units": {
-        "description": "",
+        "description": "Units, used to measure KPI, e.g. 'USD', 'hrs.', etc.\n@,default,''",
         "required": false,
         "type": {
           "name": "string",
@@ -20,7 +20,7 @@
         }
       },
       "mode": {
-        "description": "",
+        "description": "Widget mode (default, compact)\n@,default,'default'",
         "required": false,
         "type": {
           "name": "enum",
@@ -38,7 +38,7 @@
         }
       },
       "value": {
-        "description": "",
+        "description": "Current KPI value (in the current reporting period) (required)",
         "required": true,
         "type": {
           "name": "number",
@@ -46,7 +46,7 @@
         }
       },
       "preValue": {
-        "description": "",
+        "description": "Previous KPI value, to compare with (value from the previous reporting period). Used to calculate the difference and define the COLOR of the KPI\n@,default,undefined",
         "required": false,
         "type": {
           "name": "number",
@@ -54,37 +54,67 @@
         }
       },
       "baseline": {
-        "description": "",
+        "description": "Baseline (starting value, to measure progress from base -> target) value\n@,default,0",
         "required": false,
         "type": {
           "name": "number",
           "raw": "number"
         }
       },
-      "value_min": {
-        "description": "",
+      "valueMin": {
+        "description": "Minimum value of KPI (used to calculate Performace type of target difference)\n@,default,0",
         "required": false,
         "type": {
           "name": "number",
           "raw": "number"
         }
       },
-      "value_max": {
-        "description": "",
+      "valueMax": {
+        "description": "Maximum value of KPI (used to calculate Performace type of target difference)\n@,default,0",
         "required": false,
         "type": {
           "name": "number",
           "raw": "number"
         }
       },
-      "targetDiffType": {
-        "description": "",
+      "userDiffValue": {
+        "description": "set the number if you want to use custom difference method on server side\n@,requires,diffType='user'",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "diffType": {
+        "description": "Type of scoring the difference between current and previous value\n@,default,'default'\n@,see,EDifferenceType, ,*\n@,requires,userDiffValue",
         "required": false,
         "type": {
           "name": "enum",
           "value": [
             {
               "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'user'",
+              "computed": false
+            }
+          ],
+          "raw": "EDifferenceType"
+        }
+      },
+      "targetDiffType": {
+        "description": "Type of scoring the difference between current and target value\n@,default,'default'\n@,see,ETargetDifferenceType, ,*\n@,requires,target",
+        "required": false,
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'user'",
               "computed": false
             },
             {
@@ -98,17 +128,21 @@
             {
               "value": "'performance'",
               "computed": false
-            },
-            {
-              "value": "'user'",
-              "computed": false
             }
           ],
           "raw": "ETargetDifferenceType"
         }
       },
       "target": {
-        "description": "",
+        "description": "Target value\n@,default,undefined\n@,requires,targetDiffType\n@,requires,targetDiffMethod\n@,see,ETargetDifferenceType, ,*\n@,see,targetDiffMethod",
+        "required": false,
+        "type": {
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "userTargetDiffValue": {
+        "description": "set the number if you want to use custom difference method on server side\n@,requires,targetDiffType='user'",
         "required": false,
         "type": {
           "name": "number",
@@ -116,7 +150,7 @@
         }
       },
       "inverted": {
-        "description": "",
+        "description": "Should we invert what's godd and what's bad (going up -> bas, going down -> good)\n@,default,false",
         "required": false,
         "type": {
           "name": "bool",
@@ -124,7 +158,7 @@
         }
       },
       "enabled": {
-        "description": "",
+        "description": "Is KPI Wisget enabled\n@,default,true",
         "required": false,
         "type": {
           "name": "bool",
@@ -132,7 +166,7 @@
         }
       },
       "showDiff": {
-        "description": "",
+        "description": "Should we show difference between current and previous value\n@,default,true",
         "required": false,
         "type": {
           "name": "bool",
@@ -140,7 +174,7 @@
         }
       },
       "showTarget": {
-        "description": "",
+        "description": "Should we show target value\n@,default,true",
         "required": false,
         "type": {
           "name": "bool",
@@ -148,7 +182,7 @@
         }
       },
       "showTargetDiff": {
-        "description": "",
+        "description": "Should we show difference between current and target value\n@,default,true",
         "required": false,
         "type": {
           "name": "bool",
@@ -156,7 +190,7 @@
         }
       },
       "valuePrecision": {
-        "description": "",
+        "description": "Precision of value (number of digits after decimal point)\n@,default,1",
         "required": false,
         "type": {
           "name": "number",
@@ -164,7 +198,7 @@
         }
       },
       "diffPrecision": {
-        "description": "",
+        "description": "Precision of difference from previous KPI value (number of digits after decimal point)\n@,default,1",
         "required": false,
         "type": {
           "name": "number",
@@ -172,7 +206,7 @@
         }
       },
       "targetPrecision": {
-        "description": "",
+        "description": "Precision of target (number of digits after decimal point)\n@,default,1",
         "required": false,
         "type": {
           "name": "number",
@@ -180,29 +214,35 @@
         }
       },
       "targetDiffPrecision": {
-        "description": "",
+        "description": "Precision of target difference (number of digits after decimal point)\n@,default,1",
         "required": false,
         "type": {
           "name": "number",
           "raw": "number"
         }
       },
-      "diffMethod": {
-        "description": "",
+      "n_clicks": {
+        "description": "An integer that represents the number of times that this element has been clicked on.\n@,default,0\n@,param,n_clicks, ,- Number of times the component has been clicked on.",
         "required": false,
         "type": {
-          "name": "shape",
-          "value": {},
-          "raw": "FDifferenceMethod"
+          "name": "number",
+          "raw": "number"
         }
       },
-      "targetDiffMethod": {
-        "description": "",
+      "n_clicks_timestamp": {
+        "description": "An integer that represents the time (in ms since 1970) at which n_clicks changed. \r\nThis can be used to tell which button was changed most recently.\n@,default,-1 - means never clicked",
         "required": false,
         "type": {
-          "name": "shape",
-          "value": {},
-          "raw": "FTargetDifferenceMethod"
+          "name": "number",
+          "raw": "number"
+        }
+      },
+      "disable_n_clicks": {
+        "description": "When True, this will disable the n_clicks prop. \r\nUse this to remove event listeners that may interfere with screen readers.",
+        "required": false,
+        "type": {
+          "name": "bool",
+          "raw": "boolean"
         }
       },
       "id": {
@@ -219,6 +259,14 @@
         "type": {
           "name": "func",
           "raw": "(props: Record<string, any>) => void"
+        }
+      },
+      "children": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
         }
       }
     },
