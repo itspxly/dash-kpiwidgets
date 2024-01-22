@@ -1,5 +1,5 @@
 
-module Widgets
+module Kpiwidgets
 using Dash
 
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
@@ -10,19 +10,19 @@ include("jl/''_kpiwidget.jl")
 function __init__()
     DashBase.register_package(
         DashBase.ResourcePkg(
-            "widgets",
+            "kpiwidgets",
             resources_path,
             version = version,
             [
                 DashBase.Resource(
-    relative_package_path = "widgets.js",
+    relative_package_path = "kpiwidgets.js",
     external_url = nothing,
     dynamic = nothing,
     async = nothing,
     type = :js
 ),
 DashBase.Resource(
-    relative_package_path = "widgets.js.map",
+    relative_package_path = "kpiwidgets.js.map",
     external_url = nothing,
     dynamic = true,
     async = nothing,

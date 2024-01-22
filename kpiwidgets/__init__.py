@@ -33,12 +33,12 @@ _js_dist = []
 _js_dist.extend(
     [
         {
-            'relative_package_path': 'widgets.js',
+            'relative_package_path': 'kpiwidgets.js',
     
             'namespace': package_name
         },
         {
-            'relative_package_path': 'widgets.js.map',
+            'relative_package_path': 'kpiwidgets.js.map',
     
             'namespace': package_name,
             'dynamic': True

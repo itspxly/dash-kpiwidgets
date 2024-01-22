@@ -1,2 +1,2 @@
-recursive-include widgets/** *.js *.css *.json *.html
+recursive-include kpiwidgets/** *.js *.css *.json *.html assets/**
 prune tests
