@@ -1,4 +1,4 @@
-import KPIWidget from './components/KPIWidget';
+import KPIWidget from './components/KPIWidget/KPIWidget';
 
 export {
     KPIWidget
