@@ -1,7 +1,7 @@
 {
-  "name": "widgets",
+  "name": "kpiwidgets",
   "version": "1.0.0",
-  "description": "Project Description",
+  "description": "Custom React component for Dash by Plotly. Used to show the KPI value (with or without units) and difference between current and previous value, as well as target value, with difference from it, based on predefined or custom rules. ",
   "main": "index.ts",
   "repository": {
     "type": "git",
@@ -43,7 +43,7 @@
     "react-dom": "^16.13.0"
   },
   "author": "Andrei Kozik <itspxly@gmail.com>",
-  "license": "",
+  "license": "MPL-2.0",
   "dependencies": {
     "classnames": "^2.5.1"
   }
