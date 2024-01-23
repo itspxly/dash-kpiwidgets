@@ -28,7 +28,7 @@ $border-width: 2px;
 
 %disabled_diff {
     @extend %disabled_state;
-    color: c.$w-caption-color-units-font;
+    color: c.$widget-nautical-caption-units-color;
     background-color: c.$widget-nautical-color-alt;
 }
 
@@ -43,7 +43,7 @@ $border-width: 2px;
         background: linear-gradient(30deg, $h-bg-color-main 0%, $h-bg-color-alt 100%);
         border: $border-width solid $h-border-color !important;
         
-        box-shadow: -0.25rem 0.7rem 0.7rem c.$widget-shadow-color;
+        box-shadow: -0.25rem 0.7rem 0.7rem c.$widget-nautical-shadow-color;
     }
 }
 
@@ -99,9 +99,9 @@ $border-width: 2px;
         width: 27rem;
         min-width: 27rem;
         border-radius: $border-radius;
-        background: linear-gradient(30deg, c.$w-bg-base-alt 0%, c.$w-bg-base-alt 100%);
+        background: linear-gradient(30deg, c.$widget-nautical-color-bg-base-alt 0%, c.$widget-nautical-color-bg-base-alt 100%);
         
-        box-shadow: -0.3rem 0.5rem 0.5rem c.$widget-shadow-color;
+        box-shadow: -0.3rem 0.5rem 0.5rem c.$widget-nautical-shadow-color;
        
         display: flex;
         flex-flow: column nowrap;
@@ -117,17 +117,17 @@ $border-width: 2px;
         }
     
         &.inf {
-            @include container_color(c.$w-bg-base-alt, c.$w-bg-base, c.$w-bg-base-inf, c.$w-bg-base-alt, c.$w-bg-base-inf, c.$w-bg-base-inf-alt);
+            @include container_color(c.$widget-nautical-color-bg-base-alt, c.$widget-nautical-color-bg-base, c.$widget-nautical-color-inf_dark, c.$widget-nautical-color-bg-base-alt, c.$widget-nautical-color-inf_dark, c.$widget-nautical-color-inf-alt);
         }
     
         &.red,
         &.green.inverted {
-            @include container_color(c.$w-bg-base, c.$w-bg-red, c.$w-bg-red, c.$w-bg-base, c.$w-bg-red-alt, c.$w-bg-red-alt);
+            @include container_color(c.$widget-nautical-color-bg-base, c.$widget-nautical-color-red-dark, c.$widget-nautical-color-red-dark, c.$widget-nautical-color-bg-base, c.$widget-nautical-color-red-alt, c.$widget-nautical-color-red-alt);
         }
     
         &.green,
         &.red.inverted {
-            @include container_color(c.$w-bg-base, c.$w-bg-green, c.$w-bg-green, c.$w-bg-base, c.$w-bg-green-alt, c.$w-bg-green-alt);
+            @include container_color(c.$widget-nautical-color-bg-base, c.$widget-nautical-color-green-dark, c.$widget-nautical-color-green-dark, c.$widget-nautical-color-bg-base, c.$widget-nautical-color-green-alt, c.$widget-nautical-color-green-alt);
         }
 
         &.disabled,
@@ -144,9 +144,9 @@ $border-width: 2px;
             font-size: 2rem;
             font-weight: 600;
             text-align: center;
-            color: c.$w-caption-color;
+            color: c.$widget-nautical-caption-color-base;
             
-            background-color: c.$widget-caption-container;
+            background-color: c.$widget-nautical-caption-container;
             width: 100%;
             border-radius: $border-radius $border-radius 0 0;
             
@@ -180,11 +180,11 @@ $border-width: 2px;
             margin-right: 0.5rem;
             padding: 0 1rem;
 
-            color: c.$w-caption-color-units-font;
+            color: c.$widget-nautical-caption-units-color;
             text-align: center;
             
             width: 11rem;
-            background-color: c.$w-caption-color;
+            background-color: c.$widget-nautical-caption-color-base;
             border-radius: $border-radius-compact;
             
             opacity: 55%;
@@ -217,7 +217,7 @@ $border-width: 2px;
         align-content: center;
         
         opacity: 95%;
-        text-shadow: -0.15rem 0.5rem 0.7rem c.$widget-shadow-value-color;
+        text-shadow: -0.15rem 0.5rem 0.7rem c.$widget-nautical-textshadow-color;
     
         &.compact {
             padding: 0rem;
@@ -230,16 +230,16 @@ $border-width: 2px;
     
             &.red,
             &.green.inverted {
-                @include value_glow(c.$w-bg-red-alt);
+                @include value_glow(c.$widget-nautical-color-red-alt);
             }
             &.green,
             &.red.inverted {
-                @include value_glow(c.$w-bg-green-alt);
+                @include value_glow(c.$widget-nautical-color-green-alt);
             }
     
             &.inf,
             &.inf.inverted {
-                @include value_glow(c.$w-diff-inf);
+                @include value_glow(c.$widget-nautical-diff-inf);
             }
         }
 
@@ -267,7 +267,7 @@ $border-width: 2px;
         text-align: center;
         white-space: nowrap;
         
-        text-shadow: -0.15rem 0.4rem 0.5rem c.$widget-shadow-value-color;
+        text-shadow: -0.15rem 0.4rem 0.5rem c.$widget-nautical-textshadow-color;
     
         &.compact {
             margin-bottom: 0.1rem;
@@ -285,16 +285,16 @@ $border-width: 2px;
     
         &.red,
         &.green.inverted {
-            @include value_diff_state(c.$w-diff-red, c.$widget-caption-alt, c.$w-diff-red, '▼', '▼');
+            @include value_diff_state(c.$widget-nautical-diff-red, c.$widget-nautical-caption-color-alt, c.$widget-nautical-diff-red, '▼', '▼');
         }
     
         &.green,
         &.red.inverted {
-            @include value_diff_state(c.$w-diff-green, c.$widget-caption-alt, c.$w-diff-green, '▲', '▲');
+            @include value_diff_state(c.$widget-nautical-diff-green, c.$widget-nautical-caption-color-alt, c.$widget-nautical-diff-green, '▲', '▲');
         }
     
         &.inf {
-            @include value_diff_state(c.$w-diff-inf, c.$widget-caption-alt, c.$w-diff-inf, 'ᐅ', 'ᐊ');
+            @include value_diff_state(c.$widget-nautical-diff-inf, c.$widget-nautical-caption-color-alt, c.$widget-nautical-diff-inf, 'ᐅ', 'ᐊ');
         }        
     }
 
@@ -336,7 +336,7 @@ $border-width: 2px;
         align-content: center;
         align-items: center;
         
-        text-shadow: -0.15rem 0.3rem 0.5rem c.$widget-shadow-value-color;
+        text-shadow: -0.15rem 0.3rem 0.5rem c.$widget-nautical-textshadow-color;
 
         opacity: 75%;
 
